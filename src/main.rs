@@ -3,14 +3,10 @@ mod player;
 
 use macroquad::prelude::*;
 
-const GAME_SIZE_X: i32 = 800;
-const GAME_SIZE_Y: i32 = 480;
-
 fn window_conf() -> Conf {
     Conf {
         window_title: "Fong".to_owned(),
-        window_width: GAME_SIZE_X,
-        window_height: GAME_SIZE_Y,
+        fullscreen: true,
         ..Default::default()
     }
 }
@@ -27,7 +23,17 @@ async fn main() {
     let texture: Texture2D = load_texture("resources/background.png").await.unwrap();
 
     loop {
-        draw_texture(&texture, 0., 0., WHITE);
+        draw_texture_ex(
+            &texture,
+            0.,
+            0.,
+            WHITE,
+            DrawTextureParams {
+                dest_size: Some(vec2(screen_width(), screen_height())),
+                ..Default::default()
+            },
+        );
+
         resolve_collision(&mut b.rect, &mut b.vel, &p.rect);
         p.update(get_frame_time());
         b.update(get_frame_time());
