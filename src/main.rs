@@ -24,17 +24,10 @@ async fn main() {
         screen_height() * 0.15f32,
     ));
 
+    let texture: Texture2D = load_texture("resources/background.png").await.unwrap();
+
     loop {
-        
-        set_camera(&Camera3D {
-            position: vec3(-20., 15., 0.),
-            up: vec3(1., 0., 0.),
-            target: vec3(1., 0., 0.),
-            ..Default::default()
-        });
-
-        set_default_camera();
-
+        draw_texture(&texture, 0., 0., WHITE);
         resolve_collision(&mut b.rect, &mut b.vel, &p.rect);
         p.update(get_frame_time());
         b.update(get_frame_time());

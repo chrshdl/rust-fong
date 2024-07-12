@@ -2,7 +2,7 @@ use macroquad::prelude::{
     draw_rectangle, is_key_down, screen_height, screen_width, KeyCode, Rect, DARKGRAY,
 };
 
-const PLAYER_SIZE: f32 = 140f32;
+const PLAYER_SIZE: f32 = 120f32;
 const PLAYER_SPEED: f32 = 800f32;
 
 pub struct Player {
@@ -13,7 +13,7 @@ impl Player {
     pub fn new() -> Self {
         Self {
             rect: Rect::new(
-                130f32,
+                80f32,
                 screen_height() * 0.5f32 - PLAYER_SIZE * 0.5f32,
                 30f32,
                 PLAYER_SIZE,
