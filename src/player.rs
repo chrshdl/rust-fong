@@ -1,6 +1,4 @@
-use macroquad::prelude::{
-    draw_rectangle, is_key_down, screen_height, screen_width, KeyCode, Rect, DARKGRAY,
-};
+use macroquad::prelude::*;
 
 const PLAYER_SIZE: f32 = 120f32;
 const PLAYER_SPEED: f32 = 800f32;

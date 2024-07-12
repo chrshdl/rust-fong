@@ -3,10 +3,14 @@ mod player;
 
 use macroquad::prelude::*;
 
+const GAME_SIZE_X: i32 = 800;
+const GAME_SIZE_Y: i32 = 480;
+
 fn window_conf() -> Conf {
     Conf {
         window_title: "Fong".to_owned(),
-        fullscreen: true,
+        window_width: GAME_SIZE_X,
+        window_height: GAME_SIZE_Y,
         ..Default::default()
     }
 }
